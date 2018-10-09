@@ -1,5 +1,5 @@
 # Ensure ssh is enabled at next boot
-touch /boot/ssh
+sudo touch /boot/ssh
 
 # Install additional software
 
@@ -22,7 +22,7 @@ sudo apt-get purge -y gcc \
   gdb
 
 #sudo apt-get autoremove --purge
-sudo apt autoremove
+sudo apt autoremove -y
 
 sudo apt-get update
 
