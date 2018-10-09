@@ -78,6 +78,7 @@ cp config/X11/xinitrc $HOME/.xinitrc
 sudo cp config/X11/Xwrapper.config /etc/X11/Xwrapper.config
 
 cat << EOF >> $HOME/.profile 
+
 # Protect if we are logging in by checking if we are interactive
 # If we are not, start X
 # If we are interactive allow login without starting X
