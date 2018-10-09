@@ -16,14 +16,6 @@ sudo apt-get purge -y gcc \
   gcc-6 \
   gdb
 
-# Remove unused packages
-## Bluetooth
-sudo apt-get purge -y bluez \
-  bluez-firmware \
-  pi-bluetooth \
-  samba-common \
-  nfs-common 
-
 ## Compilers
 sudo apt-get purge -y gcc \
   gcc-6 \
