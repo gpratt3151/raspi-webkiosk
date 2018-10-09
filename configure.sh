@@ -1,6 +1,14 @@
 # Ensure ssh is enabled at next boot
 sudo touch /boot/ssh
 
+# Clear manpages and prevent from future installs for space saving
+# From: https://askubuntu.com/questions/129566/remove-documentation-to-save-hard-drive-space/401144#401144
+sudo cp config/man/01_nodoc  /etc/dpkg/dpkg.cfg.d/01_nodoc
+find /usr/share/doc -depth -type f ! -name copyright|xargs rm || true
+find /usr/share/doc -empty|xargs rmdir || true
+rm -rf /usr/share/man/* /usr/share/groff/* /usr/share/info/*
+rm -rf /usr/share/lintian/* /usr/share/linda/* /var/cache/man/*
+
 # Install additional software
 
 # Remove unused packages
