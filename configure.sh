@@ -1,12 +1,20 @@
+# Ensure ssh is enabled at next boot
+touch /boot/ssh
+
 # Install additional software
-sudo apt-get -y install \
-  git-core \
-  matchbox \
-  uzbl \
-  x11-xserver-utils \
-  xserver-xorg \
-  x11-utils \
-  xinit
+
+# Remove unused packages
+## Bluetooth
+sudo apt-get purge -y bluez \
+  bluez-firmware \
+  pi-bluetooth \
+  samba-common \
+  nfs-common 
+
+## Compilers
+sudo apt-get purge -y gcc \
+  gcc-6 \
+  gdb
 
 # Remove unused packages
 ## Bluetooth
@@ -23,6 +31,18 @@ sudo apt-get purge -y gcc \
 
 #sudo apt-get autoremove --purge
 sudo apt autoremove
+
+sudo apt-get update
+
+sudo apt-get -y install \
+  git-core \
+  matchbox \
+  uzbl \
+  x11-xserver-utils \
+  xserver-xorg \
+  x11-utils \
+  x11-common \
+  xinit
 
 # Configure Raspian
 ## Locale and Keyboard
@@ -63,6 +83,7 @@ sudo sed /etc/X11/Xwrapper.config -i -e "s#allowed_users=console#allowed_users=a
 mkdir -p $HOME/.config/uzbl
 cp config/uzbl/config $HOME/.config/uzbl/
 cp config/X11/xinitrc $HOME/.xinitrc
+sudo cp config/X11/Xwrapper.config /etc/X11/Xwrapper.config
 
 cat << EOF >> $HOME/.profile 
 # Protect if we are logging in by checking if we are interactive
