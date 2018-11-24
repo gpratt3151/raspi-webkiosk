@@ -1,8 +1,8 @@
 # Clear manpages and prevent from future installs for space saving
 # From: https://askubuntu.com/questions/129566/remove-documentation-to-save-hard-drive-space/401144#401144
 sudo cp config/man/01_nodoc  /etc/dpkg/dpkg.cfg.d/01_nodoc
-sudo find /usr/share/doc -depth -type f ! -name copyright|xargs rm || true
-sudo find /usr/share/doc -empty|xargs rmdir || true
+find /usr/share/doc -depth -type f ! -name copyright| sudo xargs rm || true
+find /usr/share/doc -empty|xargs sudo rmdir || true
 sudo rm -rf /usr/share/man/* /usr/share/groff/* /usr/share/info/*
 sudo rm -rf /usr/share/lintian/* /usr/share/linda/* /var/cache/man/*
 
@@ -53,8 +53,8 @@ _TIMEZONE=CST6CDT
 sudo raspi-config nonint do_change_timezone $_TIMEZONE
 
 ## Fix bug in allowing ssh logins over wireless on Pi Zero W
-sudo echo "IPQoS 0x00" >> /etc/ssh/sshd_config
 sudo rm /etc/ssh/ssh_host_* && sudo dpkg-reconfigure openssh-server
+sudo echo "IPQoS 0x00" >> /etc/ssh/sshd_config
 #sudo raspi-config nonint do_ssh
 
 ## Wireless Configuration
@@ -82,16 +82,4 @@ cp config/uzbl/config $HOME/.config/uzbl/
 cp config/X11/xinitrc $HOME/.xinitrc
 sudo cp config/X11/Xwrapper.config /etc/X11/Xwrapper.config
 
-cat << EOF >> $HOME/.profile 
-
-# Protect if we are logging in by checking if we are interactive
-# If we are not, start X
-# If we are interactive allow login without starting X
-if [[ $- != *i* ]]
-then
-  echo "Non-interactive"
-  xinit | tee /tmp/xinit.log 2>&1
-fi
-EOF
-
-
+cat config/pi/profile >> $HOME/.profile 

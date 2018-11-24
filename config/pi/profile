@@ -1,0 +1,11 @@
+
+# Protect if we are logging in by checking if we are interactive
+# If we are not, start X
+# If we are interactive allow login without starting X
+if [[ $- != *i* ]]
+then
+  echo "Non-interactive"
+  xinit | tee /tmp/xinit.log 2>&1
+fi
+EOF
+
