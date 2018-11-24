@@ -48,7 +48,7 @@ _TIMEZONE=CST6CDT
 sudo raspi-config nonint do_change_timezone $_TIMEZONE
 
 ## Fix bug in allowing ssh logins over wireless on Pi Zero W
-echo "IPQoS 0x00" >> /etc/ssh/sshd_config
+sudo echo "IPQoS 0x00" >> /etc/ssh/sshd_config
 sudo rm /etc/ssh/ssh_host_* && sudo dpkg-reconfigure openssh-server
 #sudo raspi-config nonint do_ssh
 
