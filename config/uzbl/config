@@ -1,6 +1,7 @@
 set status_top = 1
 set fifo_dir = /tmp
-set geometry = 1824x984+0+0
+#set geometry = 1824x984+0+0
+#set geometry = 1920x1080+0+0
 set show_status = 0
 
 set window_view_mode = maximized
