@@ -40,4 +40,9 @@ FIFO=$(ls -1rt /tmp/uzbl* | tail -1)
 #echo 'set geometry = '${GEOMETRY} > ${FIFO}
 echo 'set show_status = 0' > ${FIFO} 
 
+# Failsafe in case Status Bar is still showing
+sleep 3
+FIFO=$(ls -1rt /tmp/uzbl* | tail -1)
+echo 'set show_status = 0' > ${FIFO} 
+
 wait $PID
