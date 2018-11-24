@@ -1,5 +1,6 @@
 # Overclock the Pi Zero W
 cat << EOF >> /f/config.txt
+
 # Overclock Raspberry Pi Zero W
 arm_freq=1000
 gpu_freq=500
