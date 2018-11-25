@@ -54,7 +54,8 @@ sudo raspi-config nonint do_change_timezone $_TIMEZONE
 
 ## Fix bug in allowing ssh logins over wireless on Pi Zero W
 sudo rm /etc/ssh/ssh_host_* && sudo dpkg-reconfigure openssh-server
-sudo echo "IPQoS 0x00" >> /etc/ssh/sshd_config
+# Can't just echo the data to sshd_config as it's protected so we copy
+sudo cp config/raspian/sshd_config /etc/ssh/sshd_config
 #sudo raspi-config nonint do_ssh
 
 ## Wireless Configuration
