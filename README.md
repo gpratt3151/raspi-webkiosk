@@ -10,9 +10,11 @@ Download the [RASPBIAN STRETCH LITE](https://www.raspberrypi.org/downloads/raspb
 0. Update the `wpa_supplicant.conf` on the root of the SD Card.
 
 # Post-initial Boot Configuration
-1. Execute the following command to install git and pull in this repository.
+1. Login via keyboard connected to the Pi Zero W as `pi` with initial password of `raspberry`.
+2. Change the initial password via the `passwd` command.
+3. Execute the following command to install git and pull in this repository.
 ```bash
 sudo apt-get install -y git-core && git clone https://github.com/gpratt3151/raspi-webkiosk.git
 ```
-2. Execute `configure.sh`.
-3. When complete, reboot the system.
+4. Execute `configure.sh`.
+5. When complete, reboot the system.
