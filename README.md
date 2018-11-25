@@ -55,12 +55,20 @@ cd raspi-webkiosk
 
 # Customize the default web page
 You probably don't want the sample web page that is configured by default. There are two methods to change this:
-## Before running `configure.sh`
-- Edit the `config/X11/xinitrc` file before running configure.sh
-## After running `configure.sh`
-- Edit the $HOME/.xinitrc file
-## Modify the URL
-- Change the following line by replacing the URL. Be sure to keep the ampersand (&) at the end!
+### Before running `configure.sh`
+Edit the `config/X11/xinitrc` file before running configure.sh
+### After running `configure.sh`
+Edit the $HOME/.xinitrc file
+### Modify the URL
+In either case you need to change the following line by replacing the URL. Be sure to keep the ampersand (&) at the end!
 ```
 exec /usr/bin/uzbl-core -p http://commondatastorage.googleapis.com/risemedialibrary-395c64e5-2930-460b-881e-009aabb157df/content-templates/teacher-profile/teacher-profile.html &
 ```
+# Calibrate your monitor
+You may need to adjust things a bit for things to display properly. Execute the following from the command line after logging into the Pi Zero W:
+```bash
+echo 'set uri=file:///home/pi/raspi-webkiosk/config/calibration/97VkS.png' > /tmp/uzbl_fifo_*
+```
+
+# Troubleshooting
+The log file is located in `/tmp/xinit.log`
