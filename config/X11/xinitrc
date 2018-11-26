@@ -26,13 +26,17 @@ xset s noblank
 exec matchbox-window-manager  -use_titlebar no -use_cursor no &
 PID=$!
 
+# Example with the midori web browser
+#exec midori -e Fullscreen -a https://weather.srly.io/ &
+
 # Let X start and determine the screen size then start uzbl-core
 #GEOMETRY=$(xwininfo -display :0.0 -root | grep 'geometry' | awk '{ print $2 }')
-sleep 3
+#sleep 3
 #exec /usr/bin/uzbl-core -p https://weather.srly.io/ &
 exec /usr/bin/uzbl-core -p http://commondatastorage.googleapis.com/risemedialibrary-395c64e5-2930-460b-881e-009aabb157df/content-templates/teacher-profile/teacher-profile.html &
-#exec midori -e Fullscreen -a https://weather.srly.io/
-#exec midori -d -e Fullscreen -a http://10.10.10.151:3000/d/K0SArZZRz/mother-pitts?orgId=1&kiosk
+# Uncomment this to calibrate the screen. 
+# NOTE: You'll have 2 uzbl-core's running if you don't comment one above
+#exec /usr/bin/uzbl-core -p 'raspi-webkiosk/config/calibration/97VkS.png' &
 
 # Workaround because status still shows even if set to 0 in config file
 sleep 3
