@@ -1,6 +1,5 @@
 # raspi-webkiosk
-A web kiosk for the Raspberry Pi Zero W based upon a minimal Raspian Lite 
-Tested to work with version Stretch for Raspian.
+A web kiosk for the Raspberry Pi Zero W based upon a minimal Raspian Lite (Stretch).
 
 # Purpose
 The purpose of this project is to build a functioning web kiosk based upon the $10 USD ($5 on sale) Raspberry Pi Zero W. Power from an integrated USB port on the TV should be fine. The installation process is semi-automated and requires minimal interaction. Once the build is complete, you should have a functioning web browser that can be controlled via the command-line.
