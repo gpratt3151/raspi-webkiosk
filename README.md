@@ -64,6 +64,15 @@ In either case you need to change the following line by replacing the URL. Be su
 ```
 exec /usr/bin/uzbl-core -p http://commondatastorage.googleapis.com/risemedialibrary-395c64e5-2930-460b-881e-009aabb157df/content-templates/teacher-profile/teacher-profile.html &
 ```
+
+# Controlling ubzl
+Here are some example commands for controlling uzbl.
+```bash
+FIFO=$(ls -1rt /tmp/uzbl* | tail -1)
+echo 'set uri = file:///home/pi/raspi-webkiosk/config/calibration/97VkS.png' > ${FIFO}
+echo 'set show_status = 0' > ${FIFO}
+```
+
 # Calibrate your monitor or TV
 If you need to adjust the image, I have made some improvements to the great utility, `overscan` to make this a turnkey process. Clone the forked project, [gpratt3151/overscan](https://github.com/gpratt3151/set_overscan) and execute `set_overscan.sh` as follows and follow the directions:
 ```bash
