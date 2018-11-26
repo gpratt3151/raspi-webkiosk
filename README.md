@@ -64,10 +64,10 @@ In either case you need to change the following line by replacing the URL. Be su
 ```
 exec /usr/bin/uzbl-core -p http://commondatastorage.googleapis.com/risemedialibrary-395c64e5-2930-460b-881e-009aabb157df/content-templates/teacher-profile/teacher-profile.html &
 ```
-# Calibrate your monitor
-You may need to adjust things a bit for things to display properly. Execute the following from the command line after logging into the Pi Zero W:
+# Calibrate your monitor or TV
+If you need to adjust the image, I have made some improvements to the great utility, `overscan` to make this a turnkey process. Clone the forked project, [gpratt3151/overscan](https://github.com/gpratt3151/set_overscan) and execute `set_overscan.sh` as follows and follow the directions:
 ```bash
-echo 'set uri=file:///home/pi/raspi-webkiosk/config/calibration/97VkS.png' > /tmp/uzbl_fifo_*
+sudo set_overscan.sh
 ```
 
 # Troubleshooting
