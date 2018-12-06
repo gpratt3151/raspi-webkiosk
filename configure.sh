@@ -8,13 +8,14 @@ sudo rm -rf /usr/share/lintian/* /usr/share/linda/* /var/cache/man/*
 
 # Install additional software
 
-# Remove unused packages
+# Remove unused packages or problematic packages
 ## Bluetooth
 sudo apt-get purge -y bluez \
   bluez-firmware \
   pi-bluetooth \
   samba-common \
-  nfs-common 
+  nfs-common \
+  libnss-mdns
 
 ## Compilers
 sudo apt-get purge -y gcc \
