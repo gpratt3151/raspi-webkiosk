@@ -1,4 +1,2 @@
-/home/pi/bin/mqttmyip.sh wlan0 &
-/home/pi/bin/mqttmyip.sh wlan1 &
-/home/pi/bin/mqttmyip.sh eth0 &
+/home/pi/bin/checkin.sh &
 exit 0
