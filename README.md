@@ -69,6 +69,7 @@ Here are some example commands for controlling uzbl.
 ```bash
 FIFO=$(ls -1rt /tmp/uzbl* | tail -1)
 echo 'set uri = file:///home/pi/raspi-webkiosk/config/calibration/97VkS.png' > ${FIFO}
+echo 'set uri = about:blank' > ${FIFO}
 echo 'set show_status = 0' > ${FIFO}
 ```
 
