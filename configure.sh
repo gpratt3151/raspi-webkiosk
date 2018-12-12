@@ -42,6 +42,10 @@ sudo apt-get -y install \
   x11-common \
   xinit
 
+# Configure the hostname
+_HOST=$(cat /proc/sys/kernel/random/uuid | awk -F'-' '{ print $5 }')
+sudo raspi-config nonint do_hostname $_HOST
+
 # Configure Raspian
 ## Locale and Keyboard
 _LOCALE=en_US.UTF-8
