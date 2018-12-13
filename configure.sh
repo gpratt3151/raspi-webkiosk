@@ -32,6 +32,11 @@ sudo apt autoremove -y
 
 sudo apt-get update
 
+# For TV status
+sudo apt-get -y install \
+  cec-utils
+
+# For Web Browser
 sudo apt-get -y install \
   git-core \
   matchbox \
